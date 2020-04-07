@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div><h3> {{haber.haber_title}}</h3></div>
+<div>{{haber.haber_content|safe}}</div>
+<div>
+    
+    {% if haber.haber_image %}
+        <th scope="row"><img src = "{{haber.haber_image.url}}" alt = "Görüntülenemiyor..." width = "400" height = "400"></th>
+                
+    {% endif %}
+</div>
+
+
+
+{% endblock body %}

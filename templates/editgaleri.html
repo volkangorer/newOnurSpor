@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Galeri </h3>
+<hr>
+
+<a class="btn btn-danger" href="/databases/addgaleri">Medya Ekle</a>
+<hr>
+{% if galeris %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Kategori</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for galeri in galeris %}
+                <tr>
+                    <th scope="row">{{galeri.galeri_category}}</th>
+                    <td><a href="">{{galeri.galeri_title}}</a></td>
+                    <th scope="row">{{galeri.created_date}}</th>
+                    <td><a href="/databases/updategaleri/{{galeri.id}}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="/databases/deletegaleri/{{galeri.id}}" class="btn btn-danger">Sil</a></td>
+                    
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

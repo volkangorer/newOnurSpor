@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if sporokulu %}
+    {% for sporokulus in sporokulu  %}
+        <h2 class="container">{{sporokulus.title}}</h2>
+        <br>
+        <h4>{{sporokulus.content|safe}}</h4>
+    {% endfor %}
+    
+
+{% else %}
+    <p>Henüz Bir Bilgi Girilmemiş</p>
+{% endif %}
+
+
+{% endblock body %}

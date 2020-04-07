@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Oyuncu Paneli</h3>
+<hr>
+
+<a class="btn btn-danger" href="/databases/addplayer">Oyuncu Ekle</a>
+<hr>
+{% if databases %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Kategori</th>
+            <th scope="col">Pozisyon</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Boy</th>
+            <th scope="col">Kilo</th>
+            <th scope="col">Kullandığı Ayak</th>
+            <th scope="col">Kulübe Katılma Tarihi</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for database in databases %}
+                <tr>
+                    <th scope="row">{{database.category}}</th>
+                    <td>{{database.position}}</td>
+                    <td><a href="">{{database.name}}</a></td>
+                    <td>{{database.age}}</td>
+                    <td>{{database.size}}</td>
+                    <td>{{database.weight}}</td>
+                    <td>{{database.foot}}</td>
+                    <td>{{database.club_history}}</td>
+                    
+                    
+                    <td><a href="/databases/updateplayer/{{database.id}}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="/databases/deleteplayer/{{database.id}}" class="btn btn-danger">Sil</a></td>
+                    
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

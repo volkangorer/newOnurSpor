@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Haber </h3>
+<hr>
+
+<a class="btn btn-danger" href="/databases/addhaber">Haber Ekle</a>
+<hr>
+{% if haberler %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Kategori</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for haber in haberler %}
+                <tr>
+                    <th scope="row">{{haber.haber_category}}</th>
+                    <td><a href="">{{haber.haber_title}}</a></td>
+                    <th scope="row">{{haber.created_date}}</th>
+                    <td><a href="/databases/updatehaber/{{haber.id}}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="/databases/deletehaber/{{haber.id}}" class="btn btn-danger">Sil</a></td>
+                    
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div  style="  border-top:2px ridge blue;  " >
+    
+    {% if galeris %}
+    <br>
+    <h3 >GALERİ</h3>
+    {% for galeri in galeris %}
+    <div style=" ">
+
+           
+            <table class="table">
+             <thead>
+                <tr style="color:blue; background-color:yellow;" >
+                <th scope="col">Kategori</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Oluşturulma Tarihi</th>
+    
+            
+            
+            
+                </tr>
+             </thead>
+             
+            <tbody>
+            
+                <tr>
+                    <th scope="row">{{galeri.galeri_category}}</th>
+                    <th>{{galeri.galeri_title}}</th>
+                    <th scope="row">{{galeri.created_date}}</th>
+                    
+                    
+                    
+                </tr>
+    
+               
+                
+            </tbody>
+    
+            
+            </table>
+            <div style="float:left;">
+
+            
+                {% if galeri.galeri_content %}
+                <div  class="container" style=" margin-left:0px;"><img src = "{{galeri.galeri_content.url}}" alt = "Görüntülenemiyor..." width = "400" height = "200"></div> 
+                
+                {% endif %}
+
+            </div>
+            
+            
+            <div class="container">
+                    {% if galeri.galeri_content2 %}
+
+                    <div class="container">
+                        <video width='400' height= '200' controls>
+                        <source src="{{galeri.galeri_content2.url}}">
+                        
+                        </video>
+                    </div>
+            </div>
+            
+            
+            
+            {% endif %}
+            
+            
+            
+           
+            </div>
+            <br>
+
+            
+            
+            
+            
+            
+    
+    {% endfor %}
+    
+        
+
+
+
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+
+
+{% endif %}
+
+
+</div>
+
+{% endblock body %}
+

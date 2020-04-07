@@ -1,0 +1,110 @@
+{%load static%}
+<!-- Footer -->
+<footer  style="background-color:whitesmoke;"class="page-footer font-small mdb-color lighten-3 pt-4">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Menü</h5>
+
+        <ul class="list-unstyled">
+            <li>
+                <p>
+                    <a href="{% url 'index' %}">Anasayfa</a><br>
+                
+                    <a  href="{% url 'database:clubdetails' %}">Kulüp </a>  <br>
+            
+                    <a   href="{% url 'about' %}">Hakkımızda</a><br>
+            
+                    <a  href="{% url 'database:sporokulu' %}">Spor Okulu</a><br>
+                    <a  href="{% url 'database:oyuncularımız' %}">Oyuncularımız</a><br>
+                    
+                    <a  href="{% url 'database:basarılarımız' %}">Başarılarımız</a><br>
+                    <a href="{% url 'database:galeri' %}">Galeri</a><br>
+                    <a  href="{% url 'database:news' %}">Haberler</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Adres ve İletişim</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+        <!-- Social buttons -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Bizi Takip Edin</h5>
+
+        <!-- Facebook -->
+        <a type="" class="" href="https://www.facebook.com/ONURSPOR2011">
+            <img src = "{% static 'css/face.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75">
+        </a><br><br>
+        <!-- Twitter -->
+        <a href="https://www.instagram.com/onur.genclik11/" type="" class="">
+            <img src = "{% static 'css/instagram.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75">
+        </a>
+        
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a><br>
+    <a > By Volkan Görer</a>
+  </div>
+  
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

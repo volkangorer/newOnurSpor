@@ -1,0 +1,46 @@
+{%load static%}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Örnek Slider Yapımı</title>
+        
+        <link rel="stylesheet" href="/static/css/sss.css" type="text/css" media="all">   
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="/static/js/sss.min.js"></script> 
+        <script src="/static/js/sss.js"></script>
+        <script>    
+            jQuery(function($) {
+                $('.slider').sss();
+            });
+        </script>
+        
+    </head>
+    <body>
+            
+            <br>
+            
+            
+                <div class="sayfa">
+                    <div class="slider">
+                        
+                        <div><a href="/databases/haber_detail/{{a1}}"><img src = "{{ a.url }}" style="width:100%; height:100%" ></a> </div> 
+                        <div><a href="/databases/haber_detail/{{b1}}"><img src = "{{ b.url }}" style="width:100%; height:100%" ></a> </div> 
+                        
+                        
+                        
+                    </div>
+                </div>
+
+            
+            
+    <br>
+    <br>
+    <br>
+
+    
+    
+    
+    </body>
+</html>

@@ -1,0 +1,128 @@
+background-color:#d9d9d9; 
+
+<style>
+    body{
+        background-image: url("{% static 'css/ba.jpg' %}");
+        background-repeat: no-repeat;
+	    background-attachment: fixed; 
+        background-size: 100% 100%;
+        
+    }
+</style>
+
+
+class="col-md-6 offset-md-3" 
+
+
+<nav style="font:bold italic 15px Tahoma; border-radius:10px; height:100px;    padding-left:10px; top:0px;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" ><img src = "{% static 'css/kulüpfoto.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/bayrak.gif' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/atatürk.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a style="font-size:25px;" class="navbar-brand" href="{% url 'index' %}">Anasayfa</a>
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span  class="navbar-toggler-icon"></span>
+    </button>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand" ><img src = "{% static 'css/kulüpfoto.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/bayrak.gif' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/atatürk.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a style="font-size:25px;" class="navbar-brand" href="{% url 'index' %}">Anasayfa</a>
+  
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a style="font-size:25px;" class="nav-link" href="{% url 'database:clubdetails' %}">Kulüp <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a style="font-size:25px;" class="nav-link" href="{% url 'about' %}">Hakkýmýzda</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Takýmlar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'database:team' 1 %}">A Takým</a>
+            <a class="dropdown-item" href="{% url 'database:team' 2 %}">A Genç</a>
+            
+            <a class="dropdown-item" href="{% url 'database:team' 3 %}">U 17</a>
+            <a class="dropdown-item" href="{% url 'database:team' 4 %}">U 16</a>
+            <a class="dropdown-item" href="{% url 'database:team' 5 %}">U 15</a>
+            <a class="dropdown-item" href="{% url 'database:team' 6 %}">U 14</a>
+            <a class="dropdown-item" href="{% url 'database:team' 7 %}">U 13</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diðer
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'database:sporokulu' %}">Spor Okulu</a>
+            <a class="dropdown-item" href="{% url 'database:oyuncularýmýz' %}">Oyuncularýmýz</a>
+            
+            <a class="dropdown-item" href="{% url 'database:basarýlarýmýz' %}">Baþarýlarýmýz</a>
+            <a class="dropdown-item" href="{% url 'database:galeri' %}">Galeri</a>
+            <a class="dropdown-item" href="{% url 'database:news' %}">Haberler</a>
+            
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kontrol Paneli
+            </a>
+            {% if request.user.is_authenticated %}
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'user:logout' %}">Çýkýþ Yap</a>
+              
+            </div>
+            {% else %}
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'user:login' %}">Giriþ Yap</a>
+              
+            </div>
+            {% endif %}
+            
+        </li>
+
+        
+          
+      {% if request.user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Düzenle
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="{% url 'database:editplayer' %}">Oyuncular</a>
+          <a class="dropdown-item" href="{% url 'database:editgaleri' %}">Galeri</a>
+          <a class="dropdown-item" href="{% url 'database:editduyuru' %}">Duyurular</a>
+          <a class="dropdown-item" href="{% url 'database:edithaber' %}">Haberler</a>
+          
+          
+          
+        </div>
+        
+        
+        
+      </li>
+      
+      
+      {% endif %} 
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+      </form>
+    </div>
+</nav>
+
+
+/user/login/

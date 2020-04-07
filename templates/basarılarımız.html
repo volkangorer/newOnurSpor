@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if basarilarimiz %}
+    {% for basarilarimizs in basarilarimiz  %}
+        <h2 class="container">{{basarilarimizs.title}}</h2>
+        <br>
+        <h4>{{basarilarimizs.content|safe}}</h4>
+    {% endfor %}
+    
+
+{% else %}
+    <p>Henüz Bir Bilgi Girilmemiş</p>
+{% endif %}
+
+
+{% endblock body %}

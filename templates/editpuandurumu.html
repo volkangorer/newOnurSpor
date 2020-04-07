@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Puan Durumuları </h3>
+<hr>
+
+<a class="btn btn-danger" href="/databases/addpuandurumu">Takım Ekle</a>
+<hr>
+{% if puandurumları %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Kategori</th>
+            <th scope="col">Pozisyon</th>
+            <th scope="col">Takım</th>
+
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for puandurumu in puandurumları %}
+                <tr>
+                    <th scope="row">{{puandurumu.category}}</th>
+                    <td><a href="">{{puandurumu.pozisyon}}</a></td>
+                    <th scope="row">{{puandurumu.takım}}</th>
+                    <td><a href="/databases/updatepuandurumu/{{puandurumu.id}}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="/databases/deletepuandurumu/{{puandurumu.id}}" class="btn btn-danger">Sil</a></td>
+                    
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Duyurular </h3>
+<hr>
+
+<a class="btn btn-danger" href="/databases/addduyuru">Duyuru Ekle</a>
+<hr>
+{% if duyurular %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Kategori</th>
+            <th scope="col">Başlık</th>
+            <th scope="col">Oluşturulma Tarihi</th>
+
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for duyuru in duyurular %}
+                <tr>
+                    <th scope="row">{{duyuru.duyuru_category}}</th>
+                    <td><a href="">{{duyuru.duyuru_title}}</a></td>
+                    <th scope="row">{{duyuru.created_date}}</th>
+                    <td><a href="/databases/updateduyuru/{{duyuru.id}}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="/databases/deleteduyuru/{{duyuru.id}}" class="btn btn-danger">Sil</a></td>
+                    
+                </tr>
+            {% endfor %}
+          
+        </tbody>
+</table>
+
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

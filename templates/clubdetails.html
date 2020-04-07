@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if club %}
+    {% for clubs in club  %}
+        <h2 class="container">{{clubs.club_title}}</h2>
+        <br>
+        <h4>{{clubs.club_content|safe}}</h4>
+    {% endfor %}
+    
+
+{% else %}
+    <p>Henüz Bir Bilgi Girilmemiş</p>
+{% endif %}
+
+
+{% endblock body %}

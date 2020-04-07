@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h3>Puan Durumu </h3>
+<a href="http://www.izmiraskf.com/lig/puan_durumu">Puan Durumlarını için tıkla</a>
+<br><br>
+<h3>Oyuncular</h3>
+
+{% if oyuncular %}
+
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Pozisyon</th>
+        <th scope="col">Yaş</th>
+        <th scope="col">İsim</th>
+        
+        
+        <th scope="col"></th>
+        
+        
+
+        
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for oyuncu in oyuncular %}
+            <tr>
+                
+                <th scope="row">{{oyuncu.position}}</th>
+                <th scope="row">{{oyuncu.age}}</th>
+                <th scope="row">{{oyuncu.name}}</th>
+                
+                <th scope="col"><a href="/databases/detail/{{oyuncu.id}}"><button class="alert alert-info">Detay</button></a>  </th>
+                
+                
+                
+                
+            </tr>
+        {% endfor %}
+      
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-danger">
+    Henüz bir içerik bulunmuyor.
+
+</div>
+{% endif %}
+
+{% endblock body %}

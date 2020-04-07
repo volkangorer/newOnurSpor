@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div  style="  border-top:2px ridge blue;  " >
+
+    
+    <h3>HABERLER</h3>
+    {% if anasayfa_haber %}
+    <br>
+    
+    {% for haber in anasayfa_haber %}
+    
+    <div style="">
+
+            
+            <table class="table">
+            
+             <thead>
+                
+                <tr style="color:blue; background-color:yellow;" >
+                
+                <th scope="col">Kategori</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Oluşturulma Tarihi</th>
+
+                </tr>
+             </thead>
+            
+            <tbody>
+            
+                <tr>
+                    <th scope="row">{{haber.haber_category}}</th>
+                    <th>{{haber.haber_title}}</th>
+                    <th scope="row">{{haber.created_date}}</th>
+                    
+                    
+                    
+                </tr>
+    
+               
+                
+            </tbody>
+    
+            
+            </table>
+            {% if haber.haber_image %}
+            <div style=" float:left; "><img src = "{{haber.haber_image.url}}" alt = "Görüntülenemiyor..." width = "200" height = "200"></div> 
+            
+            {% endif %}
+            
+            <div style="margin-left:250px;">
+                <div>{{haber.haber_content|safe|truncatewords:30}}</div>
+                <div><a href="/databases/haber_detail/{{haber.id}}">Devamını oku</a> </div>
+                
+                
+                
+                
+            </div>
+            <br>
+                
+    </div>
+    <br>
+            
+            
+            
+    
+    {% endfor %}
+    
+    
+        
+
+
+
+
+{% else %}
+<div class="alert alert-danger">
+    Haber Bulunamadı
+
+</div>
+
+
+{% endif %}
+
+
+
+
+</div>
+<div style="margin-top:150px;">
+    
+</div>
+
+
+{% endblock body %}

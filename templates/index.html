@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+{% include "includes/slide.html" %}
+
+
+
+<hr>
+
+<div style="margin-top:10px; border-top:2px ridge blue;" >
+
+    <h3>DUYURULAR</h3>
+    {% if anasayfa_duyuru %}
+    <br>
+    
+    {% for duyuru in anasayfa_duyuru %}
+    <table class="table">
+            <thead>
+              <tr style="color:blue; background-color:yellow;" >
+                <th scope="col">Kategori</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Oluşturulma Tarihi</th>
+                
+        
+                
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <th scope="row">{{duyuru.duyuru_category}}</th>
+                        <th>{{duyuru.duyuru_title}}</th>
+                        <th scope="row">{{duyuru.created_date}}</th>
+                        
+                        
+                        
+                        
+                    </tr>
+                
+              
+            </tbody>
+        </table>
+        <div style="">{{duyuru.duyuru_content|safe}}</div>
+    {% endfor %}
+    
+     
+    
+    
+    
+    {% else %}
+    <div class="alert alert-danger">
+        Duyuru Bulunamadı
+    
+    </div>
+    
+    
+    {% endif %}
+
+</div>
+
+
+
+
+{% endblock body %}
+

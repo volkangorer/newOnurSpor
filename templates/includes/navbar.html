@@ -1,0 +1,124 @@
+{%load static%}
+
+
+
+<nav style="font:bold italic 15px Tahoma; border-radius:10px;   padding-left:10px; top:0px;" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand" ><img src = "{% static 'css/kulüpfoto.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/bayrak.gif' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    <a class="navbar-brand" ><img src = "{% static 'css/atatürk.png' %}" alt = "Görüntülenemiyor..." wigth = "75" height = "75"></a>
+    
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+          <a style="font-size:30px; color:teal;" class="navbar-brand" href="{% url 'index' %}">Anasayfa</a>
+      </li>
+      <li class="nav-item active">
+        <a style="font-size:25px;" class="nav-link" href="{% url 'database:clubdetails' %}">Kulüp <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a style="font-size:25px;" class="nav-link" href="{% url 'about' %}">Hakkımızda</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Takımlar
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'database:team' 1 %}">A Takım</a>
+            <a class="dropdown-item" href="{% url 'database:team' 2 %}">A Genç</a>
+            
+            <a class="dropdown-item" href="{% url 'database:team' 3 %}">U 17</a>
+            <a class="dropdown-item" href="{% url 'database:team' 4 %}">U 16</a>
+            <a class="dropdown-item" href="{% url 'database:team' 5 %}">U 15</a>
+            <a class="dropdown-item" href="{% url 'database:team' 6 %}">U 14</a>
+            <a class="dropdown-item" href="{% url 'database:team' 7 %}">U 13</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diğer
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'database:sporokulu' %}">Spor Okulu</a>
+            <a class="dropdown-item" href="{% url 'database:oyuncularımız' %}">Oyuncularımız</a>
+            
+            <a class="dropdown-item" href="{% url 'database:basarılarımız' %}">Başarılarımız</a>
+            <a class="dropdown-item" href="{% url 'database:galeri' %}">Galeri</a>
+            <a class="dropdown-item" href="{% url 'database:news' %}">Haberler</a>
+            
+          </div>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kontrol Paneli
+            </a>
+            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'user:logout' %}">Çıkış Yap</a>
+              
+            </div>
+            
+            
+            
+        </li>
+        {% endif %}
+
+        
+          
+      {% if request.user.is_authenticated %}
+      <li class="nav-item dropdown">
+        <a style="font-size:25px;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Düzenle
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="{% url 'database:editplayer' %}">Oyuncular</a>
+          <a class="dropdown-item" href="{% url 'database:editgaleri' %}">Galeri</a>
+          <a class="dropdown-item" href="{% url 'database:editduyuru' %}">Duyurular</a>
+          <a class="dropdown-item" href="{% url 'database:edithaber' %}">Haberler</a>
+          <a class="dropdown-item" href="{% url 'database:editclub' %}">Kulüp</a>
+          <a class="dropdown-item" href="{% url 'database:edithakkimizda' %}">Hakkımızda</a>
+          <a class="dropdown-item" href="{% url 'database:editsporokulu' %}">Spor Okulu</a>
+          <a class="dropdown-item" href="{% url 'database:editbasarilarimiz' %}">Başarılarımız</a>
+          
+          
+          
+        </div>
+        
+        
+        
+      </li>
+      
+      
+      {% endif %} 
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input name="keyword" class="form-control mr-sm-2" type="search" placeholder="Ara" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+      </form>
+    </div>
+</nav>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    

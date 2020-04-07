@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if hakkimizda %}
+    {% for hakkimizdas in hakkimizda  %}
+        <h2 class="container">{{hakkimizdas.title}}</h2>
+        <br>
+        <h4>{{hakkimizdas.content}}</h4>
+    {% endfor %}
+    
+
+{% else %}
+    <p>Henüz Bir Bilgi Girilmemiş</p>
+{% endif %}
+
+
+{% endblock body %}
+
